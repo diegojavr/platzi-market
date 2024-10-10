@@ -5,10 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="productos")
+@Table(name = "productos")
 public class Producto {
 
     @Id
@@ -31,6 +33,10 @@ public class Producto {
     private Integer cantidadStock;
 
     private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
 
 
     //Getters and Setters
